@@ -1,0 +1,7 @@
+.headColor{
+  transform:translate(-50%, -50%);
+  font: 300 40px Helvetica;
+  color:#888;
+  cursor:default;
+  transition:color 0.1s;
+}
