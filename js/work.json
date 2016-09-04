@@ -1,0 +1,25 @@
+var work = {
+  "c": [
+    {"Name":"Real Calculator", "ID":"RC", "Size":"1.08 KB", "Link":"https://gist.github.com/midhruvjaink/a45607b8491b520e132084c23b83a4c8.js" },
+    {"Name":"Factorial Using Recursion", "ID":"FactRecur", "Size":"184 Bytes", "Link":"https://gist.github.com/midhruvjaink/6391d4ac096a671da47699567c738d5e.js"}
+  ]
+}
+
+
+
+var i = 0
+document.write('<h2 class="text-primary" id="c">C</h2>');
+document.write('<div class="panel-group" id="accordion">');
+
+for(i=0; i<work.c.length; i++)
+{
+  var j = i+1;
+  document.write('<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">');
+  document.write('<a data-toggle="collapse" data-parent="#accordian" href="#' + work.c[i].ID + '" >' + work.c[i].Name + ' <span class="label label-info">' + work.c[i].Size + '</span>' + ' </a> </h4> </div>');
+  document.write('<div class="panel-collapse collapse in" id="' + work.c[i].ID + '">');
+  document.wrtie('<div class="panel-body">');
+  document.write('<script src=" '+ work.c[i].Link + '"></script>');
+  document.write('</div></div></div>');
+}
+
+document.write('</div>');
