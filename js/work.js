@@ -16,8 +16,8 @@ for(i=0; i<work.c.length; i++)
   var j = i+1;
   document.write('<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">');
   document.write('<a data-toggle="collapse" data-parent="#accordian" href="#' + work.c[i].ID + '" >' + work.c[i].Name + ' <span class="label label-info">' + work.c[i].Size + '</span>' + ' </a> </h4> </div>');
-  document.write('<div class="panel-collapse collapse in" id="' + work.c[i].ID + '">');
-  document.wrtie('<div class="panel-body">');
+  document.write('<div class="panel-collapse collapse" id="' + work.c[i].ID + '">');
+  document.write('<div class="panel-body">');
   document.write('<script src=" '+ work.c[i].Link + '"></script>');
   document.write('</div></div></div>');
 }
