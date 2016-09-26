@@ -36,3 +36,10 @@
    .searchBoxx{
     z-index: 99;
    }
+   .query{
+  		text-align: center;
+  	}
+  	.version{
+  		color: grey;
+  		font-size:11px;
+  	}
