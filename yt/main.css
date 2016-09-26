@@ -36,20 +36,3 @@
    .searchBoxx{
     z-index: 99;
    }
-
-   #show {
-      display: block;
-      width: 150px;
-      height: 150px;
-    }
-
-    #show:hover + #hide {
-      display: block;
-    }
-
-    #hide {
-      display: none;
-    }
-    #hide:hover{
-      display: block;
-    }

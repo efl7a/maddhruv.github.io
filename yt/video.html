@@ -13,15 +13,16 @@
 <div class="">
 	<div class="row">
 		<form class="" id="searchBox" action="video.html">
+		<div class="input-field col s10 red-text searchBoxx" id="hide">
+				<input type="text" name="search" placeholder="Search Video">
+			</div>
 			<div class="col s2 searchButton" id="show"> 
 				<button class="btn waves-effect waves-light red darken-3 hoverable" id="submit-btn" type="submit" name="action">Search</button>
 			</div>
-			<div class="input-field col s10 red-text searchBoxx" id="hide">
-				<input type="text" name="search" placeholder="Search Video">
-			</div>
+			
 		<script>
 		var z = window.location.href;
-		var y = z.substring(44, z.length);
+		var y = z.substring(45, z.length-8);
 		document.write('<div style="position: fixed; z-index: -99; width: 100%; height: 100%"><iframe id="ytplayer" type="text/html" height="100%" width="100%"  src="https://www.youtube.com/embed?listType=search&list='+y+'"  frameborder="0" allowfullscreen> </iframe></div>');
 		</script>
 		</form>
