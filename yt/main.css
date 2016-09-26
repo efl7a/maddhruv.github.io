@@ -30,13 +30,26 @@
    }
    .searchButton{
     margin-top: 21px;
+    opacity: 0.6;
+    z-index: +99;
    }
-   .showme{ 
-display: none;
-}
-.hover:hover .showme{
-display : block;
-}
-.showhim:hover .ok{
-display : none;
-}
+   .searchBoxx{
+    z-index: 99;
+   }
+
+   #show {
+      display: block;
+      width: 150px;
+      height: 150px;
+    }
+
+    #show:hover + #hide {
+      display: block;
+    }
+
+    #hide {
+      display: none;
+    }
+    #hide:hover{
+      display: block;
+    }
