@@ -33,13 +33,7 @@
     opacity: 0.6;
     z-index: +99;
    }
-   .searchBoxx{
-    z-index: 99;
+   .searchBox{
+    padding-left: 40px;
+    width: 60%;
    }
-   .query{
-  		text-align: center;
-  	}
-  	.version{
-  		color: grey;
-  		font-size:11px;
-  	}

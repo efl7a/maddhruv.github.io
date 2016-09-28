@@ -16,40 +16,59 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <!--google analytics trace code-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82828999-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
-<body>
+<body>	
 	<div class="row info">
 		<div class="col s1">
 		<a href="http://midhruvjaink.xyz/">
-			<img src="https://avatars3.githubusercontent.com/u/18121502?v=3&s=200" alt="dev photo" class="circle" width="30" height="30">
+			<img src="https://avatars3.githubusercontent.com/u/18121502?v=3&s=100" alt="dev photo" class="circle" width="30" height="30">
 		</a>
 		</div>
 		<div class="col s1 offset-s10 version">
-			v-beta-1.2
+			v-beta2.0
 		</div>
 	</div>
-<div class="container center">
-	<div class="row vertical">
-		<div class="logo col s4 offset-s4">
-			<img src="logo.png" alt="logo" class="responsive-img" />
+	<div class="container center">
+		<div class="row vertical">
+			<div class="logo col s4 offset-s4">
+				<img src="logo.png" alt="logo" class="responsive-img" />
+			</div>
+		</div>
+		<div class="vertical">
+			<form class="" id="searchBox" action="video.html" ng-app ng-controller="Ctrl">
+				<div class="input-field red-text">
+					<input type="text" name="search" placeholder="Search Video" class="query" id="query" list="items">
+					<datalist id="items">
+	    				<option ng-repeat="option in dataset" value="{{option[0]}}" />
+	  				</datalist>				
+				</div>
+				<div class="col s4 offset-s4">
+				 <button class="btn waves-effect waves-light red darken-1" id="submit-btn" type="submit" name="action">Search</button>
+				</div>
+			</form>
+			<script>
+			  var Ctrl;
+			</script>
+			<script type="text/javascript" src="autoSuggest.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+					<scriptvar x = document.getElementById('submit-btn').addEventListener('click',function(){
+				      var search = document.getElementById('search').value;
+				      window.location = "video.html?q="+search;
+				        });>
+			</script>
 		</div>
 	</div>
-	<div class="vertical">
-		<form class="" id="searchBox" action="video.html">
-			<div class="input-field red-text">
-				<input type="text" name="search" placeholder="Search Video" class="query">
-			</div>
-			<div class="col s4 offset-s4">
-			 <button class="btn waves-effect waves-light red darken-1" id="submit-btn" type="submit" name="action">Search</button>
-			</div>
-		</form>
-		<scriptvar x = document.getElementById('submit-btn').addEventListener('click',function(){
-	      var search = document.getElementById('search').value;
-	      window.location = "video.html?q="+search;
-	        });>
-		</script>
-	</div>
-</div>
 </body>
 </html>
