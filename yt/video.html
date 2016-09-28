@@ -38,11 +38,11 @@
     </li>
     <li class="searchBox grey-text lighten-5">
     <form class="grey-text lighten-5" id="searchBox" action="video.html" ng-app ng-controller="Ctrl">
-    <input type="text" name="search" placeholder="Search Video" class="query grey-text lighten-5" id="query" list="items">
+      <input type="text" name="search" placeholder="Search Video" class="query grey-text red darken-1 lighten-5" id="query" list="items">
         <datalist id="items">
             <option ng-repeat="option in dataset" value="{{option[0]}}" />
-          </datalist>
-      </form>         
+        </datalist>
+    </form>         
     <script>
       var Ctrl;
     </script>

@@ -35,5 +35,11 @@
    }
    .searchBox{
     padding-left: 40px;
-    width: 60%;
+    width: 900px;
+   }
+   .fb_share{
+    padding-left: 5px;
+   }
+   button>shareBtn{
+    padding-top: 40px;
    }
