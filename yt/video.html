@@ -30,6 +30,7 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+<script type="text/javascript" src="fbSDK.js"></script>
 	<nav>
   <div class="nav-wrapper red darken-1 hoverable z-depth-2">
   <ul>
@@ -62,8 +63,8 @@
     <div class="col s10 offset-s-1">
     <script>
     var z = window.location.href;
-    var y = z.substring(44, z.length);
-    document.write('<div><iframe id="ytplayer" type="text/html" height="530px" width="120%"  src="https://www.youtube.com/embed?listType=search&list='+y+'"  frameborder="0" allowfullscreen> </iframe></div>');
+    var y = z.substring(96, z.length);
+    document.write('<div><iframe id="ytplayer" type="text/html" height="530px" width="120%"  src="https://www.youtube.com/embed?listType=search&list='+y+'&?autoplay=1"  frameborder="0" allowfullscreen> </iframe></div>');
     </script>
     </div>
   </div>
