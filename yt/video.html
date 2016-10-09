@@ -47,6 +47,11 @@
     <li class="searchBox grey-text lighten-5">
     <form class="grey-text lighten-5" id="searchBox" action="video.html" ng-app ng-controller="Ctrl">
       <input type="text" name="search" placeholder="Search Video" class="query grey-text red darken-1 lighten-5" id="query" list="items">
+          <script type="text/javascript">
+            var input = document.getElementById('query');
+            input.focus();
+            input.select();
+          </script>
         <datalist id="items">
             <option ng-repeat="option in dataset" value="{{option[0]}}" />
         </datalist>
