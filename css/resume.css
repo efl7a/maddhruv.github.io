@@ -1,0 +1,29 @@
+body{
+	background-color: #FEFDFB
+}
+header{
+	text-align: center;
+}
+a{	
+	color: #000;
+}
+a:hover{
+	text-decoration: none;
+	color: #000
+}
+.subHeading{
+	text-transform: uppercase;
+	color: grey;
+}
+.nameHead{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.designation{	
+	text-transform: uppercase;
+	line-height: 30%;
+}
+.details{
+	color: grey;
+	line-height: 30%;
+}
