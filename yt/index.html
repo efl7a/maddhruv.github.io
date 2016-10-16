@@ -30,23 +30,6 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>	
-	<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1862686427297723',
-      xfbml      : true,
-      version    : 'v2.7'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script> 
 	<div class="row info">
 		<div class="col s1 shareBtn">
 			<a href="#share" >
@@ -54,7 +37,7 @@
 			</a>		
 		</div>
 		<div class="col s1 offset-s10 version">
-			v-beta5.0
+			v-beta6.0
 		</div>
 	</div>
 	<div class="container center">
@@ -106,7 +89,23 @@
 	</div>
 	<footer class="page-footer foot red darken-1" id="share">
 	<div class="row">
-		<div class="col s1 fb_share">
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1862686427297723',
+		      xfbml      : true,
+		      version    : 'v2.7'
+		    });
+		  };
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script> 
+		<div class="col s3 fb_share">
 			<div
 			  class="fb-like"
 			  data-share="true"
@@ -114,26 +113,7 @@
 			  data-show-faces="true">
 			</div>
 		</div>
-		<div class="col s1 statcounter offset-s3">
-			<!-- Start of StatCounter Code for Default Guide -->
-			<script type="text/javascript">
-			var sc_project=11119750; 
-			var sc_invisible=0; 
-			var sc_security="5cf7fc34"; 
-			var scJsHost = (("https:" == document.location.protocol) ?
-			"https://secure." : "http://www.");
-			document.write("<sc"+"ript type='text/javascript' src='" +
-			scJsHost+
-			"statcounter.com/counter/counter.js'></"+"script>");
-			</script>
-			<noscript><div class="statcounter"><a title="web statistics"
-			href="http://statcounter.com/free-web-stats/"
-			target="_blank"><img class="statcounter"
-			src="//c.statcounter.com/11119750/0/5cf7fc34/0/" alt="web
-			statistics"></a></div></noscript>
-			<!-- End of StatCounter Code for Default Guide -->
-			</div>
-		<div class="offset-s3 col s1">
+		<div class="offset-s8 col s1">
 	    	<a href="http://midhruvjaink.xyz/" target="_blank">
 	    	<img src="dev.jpg" alt="dev photo" class="circle" width="30" height="30">
 			</a>

@@ -5,26 +5,123 @@
         <meta charset="UTF-8" />					
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Awesome videos!" />
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="htpps://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
+    <style>
+    .youtube-player {
+        position: relative;
+        padding-bottom: 56.23%;
+        /* Use 75% for 4:3 videos */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        background: #000;
+        margin: 5px;
+    }
+    
+    .youtube-player iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        background: transparent;
+    }
+    
+    .youtube-player img {
+        bottom: 0;
+        display: block;
+        left: 0;
+        margin: auto;
+        max-width: 100%;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border: none;
+        height: auto;
+        cursor: pointer;
+        -webkit-transition: .4s all;
+        -moz-transition: .4s all;
+        transition: .4s all;
+    }
+    
+    .youtube-player img:hover {
+        -webkit-filter: brightness(75%);
+    }
+    
+    .youtube-player .play {
+        height: 72px;
+        width: 72px;
+        left: 50%;
+        top: 50%;
+        margin-left: -36px;
+        margin-top: -36px;
+        position: absolute;
+        background: url("//i.imgur.com/TxzC70f.png") no-repeat;
+        cursor: pointer;
+    }
+    </style>
     <body>
-        <header>
-            <h1 class="w100 text-center"><a href="index.html">YouTube Viral Search</a></h1>
-        </header>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <form action="#">
-                    <p><input type="text" id="search" placeholder="Type something..." autocomplete="off" class="form-control" /></p>
-                    <p><input type="submit" value="Search" class="form-control btn btn-primary w100"></p>
-                </form>
-                <div id="results"></div>
-            </div>
-        </div>
+        <div class="container">
+        <div id="YTPlayer">
         
-        <!-- scripts -->
-        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-        <script src="main.js"></script>
-        <script src="https://apis.google.com/js/client.js?onload=init"></script>
+        <script>
+            var xhr = new XMLHttpRequest();
+	var url = "https://www.googleapis.com/youtube/v3/search?part=id&q=hello&type=video&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
+
+	xhr.open("GET", url, true);
+
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4) {
+			var status = xhr.status;
+
+			if ((status >= 200 && status < 300) || status === 304) {
+			    var rss = JSON.parse(xhr.responseText);
+			    document.getElementById('YTPlayer').innerHTML=('<div class="youtube-player" data-id="'+rss.items[0].id.videoId+'"></div>');
+			    //('<iframe id="ytplayer" type="text/html" width="100%" height="480px" src="https://www.youtube.com/embed/'+rss.items[0].id.videoId+'?autoplay=1&color=white&showinfo=0" allowfullscreen frameborder="0"></iframe>');
+			} else {
+			    alert("Request unsuccessful");
+			}
+		}
+	};
+	xhr.send(null);
+        </script>
+        
+        </div>
+        	       	
+        	<script> document.addEventListener("DOMContentLoaded",
+        function() {
+            var div, n,
+                v = document.getElementsByClassName("youtube-player");
+            for (n = 0; n < v.length; n++) {
+                div = document.createElement("div");
+                div.setAttribute("data-id", v[n].dataset.id);
+                div.innerHTML = labnolThumb(v[n].dataset.id);
+                div.onclick = labnolIframe;
+                v[n].appendChild(div);
+            }
+        });
+ 
+    function labnolThumb(id) {
+        var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
+            play = '<div class="play"></div>';
+        return thumb.replace("ID", id) + play;
+    }
+ 
+    function labnolIframe() {
+        var iframe = document.createElement("iframe");
+        var embed = "https://www.youtube.com/embed/ID?autoplay=1";
+        iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
+        iframe.setAttribute("frameborder", "0");
+        iframe.setAttribute("allowfullscreen", "1");
+        this.parentNode.replaceChild(iframe, this);
+    }
+ 
+ 
+</script>
+        </div>
     </body>
 </html>
