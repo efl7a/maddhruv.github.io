@@ -13,7 +13,7 @@
       if ((status >= 200 && status < 300) || status === 304) {
         var rss = JSON.parse(xhr.responseText);
         var videoId = rss.items[0].id.videoId;
-        document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="100%" height="480px" src="https://www.youtube.com/embed/'+videoId+'?autoplay=1&color=white&showinfo=0" allowfullscreen frameborder="0"></iframe>');
+        document.getElementById('YTPlayer').innerHTML = ('<iframe id="ytplayer" type="text/html" width="100%" height="480px" src="https://www.youtube.com/embed/'+videoId+'?autoplay=1&color=white&showinfo=0&rel=0" allowfullscreen frameborder="0"></iframe>');
         var secVid = rss.items[1].id.videoId;
         var thVid = rss.items[2].id.videoId;
         var frthVid = rss.items[3].id.videoId;
@@ -26,4 +26,3 @@
     }
   };
   xhr.send(null);
-

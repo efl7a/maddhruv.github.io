@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>		
+    <head>
         <title>Your awesome Youtube search engine</title>
-        <meta charset="UTF-8" />					
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Awesome videos!" />
         <link rel="stylesheet" href="htpps://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
         background: #000;
         margin: 5px;
     }
-    
+
     .youtube-player iframe {
         position: absolute;
         top: 0;
@@ -29,7 +29,7 @@
         z-index: 100;
         background: transparent;
     }
-    
+
     .youtube-player img {
         bottom: 0;
         display: block;
@@ -47,11 +47,11 @@
         -moz-transition: .4s all;
         transition: .4s all;
     }
-    
+
     .youtube-player img:hover {
         -webkit-filter: brightness(75%);
     }
-    
+
     .youtube-player .play {
         height: 72px;
         width: 72px;
@@ -65,63 +65,96 @@
     }
     </style>
     <body>
-        <div class="container">
-        <div id="YTPlayer">
-        
-        <script>
-            var xhr = new XMLHttpRequest();
-	var url = "https://www.googleapis.com/youtube/v3/search?part=id&q=hello&type=video&key=AIzaSyDf-TCgD54NNSlg_PbqeJyhXWhn0B4WBzw";
-
-	xhr.open("GET", url, true);
-
-	xhr.onreadystatechange = function() {
-		if (xhr.readyState === 4) {
-			var status = xhr.status;
-
-			if ((status >= 200 && status < 300) || status === 304) {
-			    var rss = JSON.parse(xhr.responseText);
-			    document.getElementById('YTPlayer').innerHTML=('<div class="youtube-player" data-id="'+rss.items[0].id.videoId+'"></div>');
-			    //('<iframe id="ytplayer" type="text/html" width="100%" height="480px" src="https://www.youtube.com/embed/'+rss.items[0].id.videoId+'?autoplay=1&color=white&showinfo=0" allowfullscreen frameborder="0"></iframe>');
-			} else {
-			    alert("Request unsuccessful");
-			}
-		}
-	};
-	xhr.send(null);
-        </script>
-        
-        </div>
-        	       	
-        	<script> document.addEventListener("DOMContentLoaded",
-        function() {
-            var div, n,
-                v = document.getElementsByClassName("youtube-player");
-            for (n = 0; n < v.length; n++) {
-                div = document.createElement("div");
-                div.setAttribute("data-id", v[n].dataset.id);
-                div.innerHTML = labnolThumb(v[n].dataset.id);
-                div.onclick = labnolIframe;
-                v[n].appendChild(div);
-            }
-        });
- 
-    function labnolThumb(id) {
-        var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
-            play = '<div class="play"></div>';
-        return thumb.replace("ID", id) + play;
+      <script>
+      function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
     }
- 
-    function labnolIframe() {
-        var iframe = document.createElement("iframe");
-        var embed = "https://www.youtube.com/embed/ID?autoplay=1";
-        iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
-        iframe.setAttribute("frameborder", "0");
-        iframe.setAttribute("allowfullscreen", "1");
-        this.parentNode.replaceChild(iframe, this);
-    }
- 
- 
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '{your-app-id}',
+    cookie     : true,  // enable cookies to allow the server to access
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.5' // use graph api version 2.5
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
 </script>
-        </div>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
     </body>
 </html>
