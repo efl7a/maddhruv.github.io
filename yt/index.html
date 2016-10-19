@@ -30,69 +30,59 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-	<div class="row info">
-		<div class="col s1 shareBtn">
-			<a href="#share" >
-				<button class="red darken-2 wave-effect btn waves-light">Spread</button>
-			</a>
-		</div>
-		<div class="col s1 offset-s10 version">
-			v-beta6.4
-		</div>
-	</div>
-	<div class="container center">
-		<div class="row vertical">
-			<div class="logo col s4 offset-s4">
-				<img src="logo.png" alt="logo" class="responsive-img" />
-			</div>
-		</div>
-		<div class="vertical">
-			<form class="" id="searchBox" action="video.html" ng-app ng-controller="Ctrl">
-				<div class="input-field red-text">
-					<input type="text" name="search" placeholder="Search Songs, Videos, Events, Gaming Videos, Live Streams and many more ... " class="query center" id="query" list="items">
-					<script type="text/javascript">
-						var input = document.getElementById('query');
-						input.focus();
-						input.select();
-					</script>
-					<datalist id="items">
-	    				<option ng-repeat="option in dataset" value="{{option[0]}}" />
-	  				</datalist>
-				</div>
-				<div class="col s4 offset-s4">
-				 <button class="btn waves-effect waves-light red darken-1" id="submit-btn" type="submit" name="action">Search</button>
-				</div>
-			</form>
-			<script>
-			  var Ctrl;
-			</script>
-			<script type="text/javascript" src="autoSuggest.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
-				<script var x = document.getElementById('submit-btn').addEventListener('click',function(){
-			      var search = document.getElementById('search').value;
-			      window.location = "video.html?q="+search;
-			        });>
-			</script>
-		</div>
-	</div>
-	<div class="row extension">
-		<div class="col s4 offset-s8 z-depth-3 hoverable card white darken-1">
-            <div class="card-content black-text">
-              <span class="card-title">Adblock for YouTube</span>
-              <p>Simply block YouTube video ads and annotations using these addons and extension and expirience faster video streaming!</p>
-            </div>
-            <div class="card-action red-text">
-              <a href="https://chrome.google.com/webstore/detail/adblock-for-youtube/cmedhionkhpnakcndndgjdbohmhepckk?utm_source=chrome-ntp-icon" target="_blank">Install for Chrome</a>
-              <a href="https://addons.mozilla.org/en-US/firefox/addon/youtube-adblock" target="_blank">Install for Firefox</a>
-            </div>
-          </div>
-	</div>
-	<footer class="page-footer foot red darken-1" id="share">
-	<div class="row right">
-	    	<a href="http://midhruvjaink.xyz/" target="_blank">
-	    	<img src="dev.jpg" alt="dev photo" class="circle" width="30" height="30">
-			</a>
-	</div>
-	</footer>
+	<nav>
+  <div class="nav-wrapper red darken-1 hoverable z-depth-2">
+  <ul>
+  <li>
+    <img src="main.svg" alt="logo" class="responsive-img logo" width="60px" height="60px" />
+    </li>
+    <li class="searchBox grey-text lighten-5">
+    <form class="grey-text lighten-5" id="searchBox" ng-app ng-controller="Ctrl">
+    <div class="row">
+      <div class="col s11">
+        <input type="text" name="search" placeholder="Search Video..." class="query white-text red darken-1 lighten-5" id="query" list="items">
+      </div>
+      <div class="col s1">
+        <input onclick="video(document.getElementById('query').value)" type="submit" style="visibility:hidden;"></input>
+      </div>
+    </div>        
+          <script type="text/javascript">
+            var input = document.getElementById('query');
+            input.focus();
+            input.select();
+          </script>
+        <datalist id="items">
+            <option ng-repeat="option in dataset" value="{{option[0]}}" />
+        </datalist>
+    </form>         
+    <script>
+      var Ctrl;
+    </script>
+    <script type="text/javascript" src="autoSuggest.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+      </li>
+      <li class="right">v-beta7.0</li>
+    </ul>
+  </div>
+</nav>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col s10 offset-s1" id="YTPlayer">
+      <iframe width="100%" height="480px" src="https://www.youtube.com/embed/4PdU6migsqQ?autoplay=1&color=white&showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col s1" id="desc"></div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col s9 offset-s1">
+      <h5 class="simHead" id="simHead"></h5>
+      <div class="row">
+        <div class="col s3" id="secVid"></div>
+        <div class="col s3" id="thVid"></div>
+        <div class="col s3" id="frthVid"></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="index.js"></script>
 </body>
 </html>
