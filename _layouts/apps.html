@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="Dhruv Jain, Dhruv Jain App, Dhruv App, Dhruv Software, Dhruv Android, Dhruva Jain, Dhruv DatorLab, DatorLab, ZeroPennyMovies, Dhruv Jain Resume, Dhruv Jain Website, Mukesh Jain, Sunita Jain, Shruti Jain, Dhruv, Jain, Dhruv Programmer, Dhruv Developer, dJ, midhruvjaink, mi dhruvjain k, midhruv jaink, "
+    <meta content="Dhruv Jain is a programmer-developer, founder of blog DatorLab, Open Source Contributor, Designer, App Developer and Geek :p." name="description" >
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,300italic,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/public/stylesheets/app.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.0/flickity.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon"  href="/favicon.ico" />
+    <title>App Showcase - Dhruv Jain - @midhruvjaink</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    {% include appMain.html %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.0/flickity.pkgd.min.js"></script>
+    <script>
+    $("#showcase").flickity({
+      	wrapAround: true,
+    });
+    $(document).ready(function(){
+      var dataApp = '[{"name": "miTime","platform": "Android","img": "https://cms-assets.tutsplus.com/legacy-courses/CRS-96680.png","version": ""}]';
+
+      var data = JSON.parse(dataApp);
+      var showcase = $('#showcase');
+      var result = '';
+      $.each(data, function(i, item){
+        result += '<div class="course-item slide"><div class="course-summary card"><div class="course-thumbnail"><img src="'+item.img+'"height="277" width="400" alt="image"></div>';
+        result += '<div class="course-info"><div class="course-topic webdesign">'+item.platform+'</div>';
+        result += '<h3 class="course-title">'+item.name+'</h3>';
+        result += '<div class="course-meta"><time class="course-date">Version</time><span class="course-duration">'+item.version+'</span></div></div></div></div>';
+      });
+      showcase.html(result);
+    });
+
+    </script>
+  </body>
+</html>
