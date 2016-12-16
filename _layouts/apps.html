@@ -21,7 +21,7 @@
       	wrapAround: true,
     });
     $(document).ready(function(){
-      var dataApp = '[{"name": "miTime","platform": "Android","img": "https://cms-assets.tutsplus.com/legacy-courses/CRS-96680.png","version": ""}]';
+      var dataApp = '[{"name": "Tic Tac Toe","platform": "Android","img": "https://cdn4.iconfinder.com/data/icons/christmas-icon-set-3/512/shoe-128.png","version": "1.0.1","download":""},{"name": "Color Time","platform": "Android","img": "https://cdn3.iconfinder.com/data/icons/forall/995/challenge-128.png","version": "1.0.1","download":""}]';
 
       var data = JSON.parse(dataApp);
       var showcase = $('#showcase');
@@ -29,7 +29,7 @@
       $.each(data, function(i, item){
         result += '<div class="course-item slide"><div class="course-summary card"><div class="course-thumbnail"><img src="'+item.img+'"height="277" width="400" alt="image"></div>';
         result += '<div class="course-info"><div class="course-topic webdesign">'+item.platform+'</div>';
-        result += '<h3 class="course-title">'+item.name+'</h3>';
+        result += '<h3 class="course-title"><a href="'+item.download+'" class="download">'+item.name+'</a></h3>';
         result += '<div class="course-meta"><time class="course-date">Version</time><span class="course-duration">'+item.version+'</span></div></div></div></div>';
       });
       showcase.html(result);
