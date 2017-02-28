@@ -20,6 +20,3 @@ gems:
 
 exclude:
   - "README.md"
-  - "CHANGELOG.md"
-  - "Gemfile"
-  - "Gemfile.lock"
