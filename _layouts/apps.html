@@ -14,7 +14,7 @@
   </head>
   <body>
     {% include appMain.html %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="{{ "/public/javascripts/jquery.min.js" | prepend:site.baseurl }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.0/flickity.pkgd.min.js"></script>
     <script>
     $("#showcase").flickity({

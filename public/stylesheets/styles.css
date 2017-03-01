@@ -1,13 +1,16 @@
 /* main */
-
+html{
+  cursor: help;
+}
 body {
   padding: 0px 0 20px 0px;
   margin: 0px;
   font: 14px/1.5 'Open Sans', sans-serif;
   color: #A3BFC6 ;
   font-weight: normal;
-  background: #222A30;
+  background: #190F10;
   -webkit-font-smoothing: subpixel-antialiased;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -15,7 +18,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#B3D1F0;
+  color: #00D75C;
   margin: 0 0 10px;
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
@@ -46,7 +49,7 @@ h3 {
 }
 
 a {
-  color: #49B1F7;
+  color: #00D75C;
   font-weight: 400;
   text-decoration: none;
 }
@@ -66,15 +69,15 @@ a small {
   margin-top: -0.6em;
   display: block;
 }
-
+.fa{
+  color: #E4FFF9;
+}
 a#git-ic{
   font-size:37px;
-  color:#fff;
 }
 
 a#so-ic{
   font-size:32px;
-  color:#fff;
 }
 
 strong {
@@ -88,7 +91,6 @@ strong {
   position: relative;
   padding: 0 20px;
 }
-
 section img {
   max-width: 100%;
 }
