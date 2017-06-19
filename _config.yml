@@ -1,15 +1,15 @@
 baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the root level.
-url: "midhruvjaink.github.io" # the base hostname & protocol for your site.
-title: "Dhruv Jain - @midhruvjaink"
+url: "maddhruv.github.io" # the base hostname & protocol for your site.
+title: "Dhruv Jain - @maddhruv"
 markdown: kramdown
 timezone: Asia/Calcutta
 
 #contacts
-git: "https://github.com/midhruvjaink"
-stackoverflow: "http://stackoverflow.com/users/6205689/midhruvjaink"
-twitter: "https://twitter.com/midhruvjaink"
-facebook: "https://facebook.com/midhruvjaink"
-linkedin: "https://www.linkedin.com/in/midhruvjaink"
+git: "https://github.com/maddhruv"
+stackoverflow: "http://stackoverflow.com/users/6205689/maddhruv"
+twitter: "https://twitter.com/maddhruv"
+facebook: "https://facebook.com/maddhruv"
+linkedin: "https://www.linkedin.com/in/maddhruv"
 
 
 gems:
